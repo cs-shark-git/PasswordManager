@@ -11,7 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.IO;
+using System.Windows.Media.Animation;
 
 namespace PasswordManager
 {
@@ -22,7 +23,20 @@ namespace PasswordManager
     {
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();          
+        }
+
+        private void Window_Initialized(object sender, EventArgs e)
+        {
+           // File.Create(AppDomain.CurrentDomain.BaseDirectory + "\\firstLaunch.cs_shark");  //Файлы с моим расширением :)
+            if (FirstLaunch.CheckLaunch(AppDomain.CurrentDomain.BaseDirectory + "\\firstLaunch.cs_shark"))
+            {
+                button.Content = "пипа";
+            }
+            else
+            {               
+                button.Content = "не пипа";
+            }
         }
     }
 }
