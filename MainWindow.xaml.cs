@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.IO;
 using System.Windows.Media.Animation;
+using PasswordManager.Forms;
+using PasswordManager.Properties;
 
 namespace PasswordManager
 {
@@ -23,19 +25,32 @@ namespace PasswordManager
     {
         public MainWindow()
         {
-            InitializeComponent();          
+            // Settings.Default.Reset();
+            InitializeComponent();
         }
 
         private void Window_Initialized(object sender, EventArgs e)
         {
-           // File.Create(AppDomain.CurrentDomain.BaseDirectory + "\\firstLaunch.cs_shark");  //Файлы с моим расширением :)
-            if (FirstLaunch.CheckLaunch(AppDomain.CurrentDomain.BaseDirectory + "\\firstLaunch.cs_shark"))
-            {
-                button.Content = "пипа";
+            if (Settings.Default.isFirstLaunch)
+            {                               
+                Hide();
+                WelcomeForm win = new WelcomeForm();
+                win.Show();
+                Settings.Default.isFirstLaunch = false;
+                Settings.Default.Save();
             }
             else
-            {               
-                button.Content = "не пипа";
+            {
+                MessageBox.Show("MainWindow");
+                Application.Current.Shutdown();
+                /*
+                 * 
+                 * TODO:
+                 * Launch MainWindow with normal created normal GUI and realize save info from WelcomeForm.
+                 * Add new comments
+                 * Stop writing shit -_-
+                 * 
+                 */
             }
         }
     }

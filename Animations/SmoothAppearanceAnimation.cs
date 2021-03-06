@@ -10,56 +10,35 @@ namespace PasswordManager
 {
     class SmoothAppearanceAnimation
     {
-        DoubleAnimation widthAnimation;
-        DoubleAnimation heightAnimation;
-        DoubleAnimation opacityAnimation;
-        Control[] controls;    // Array of controls
-        SmoothAppearanceAnimation(params Control[] controls)    // Getting controls for animation
+        private DoubleAnimation widthAnimation;
+        private DoubleAnimation heightAnimation;
+        protected DoubleAnimation opacityAnimation;
+        private System.Windows.FrameworkElement[] controls;    // Array of controls
+        public SmoothAppearanceAnimation(params System.Windows.FrameworkElement[] controls)    // Getting controls for animation
         {
             this.controls = controls;
-        }
-        void AnimationProperties(double startWidth, double startHeight, double endWidth, double endHeight, double startOpacity, double endOpacity)      //Setting animation properties for width, height, opacity.
-        {
             widthAnimation = new DoubleAnimation();
-            widthAnimation.To = endWidth;
-            widthAnimation.Duration = TimeSpan.FromSeconds(3);
             heightAnimation = new DoubleAnimation();
-            heightAnimation.To = endHeight;
-            heightAnimation.Duration = TimeSpan.FromSeconds(3);
             opacityAnimation = new DoubleAnimation();
-            opacityAnimation.To = endOpacity;
-            opacityAnimation.Duration = TimeSpan.FromSeconds(3);
-            foreach (Control control in controls)
-            {
-                widthAnimation.From = startWidth;
-                heightAnimation.From = startHeight;
-                opacityAnimation.From = startOpacity;
-            }
-
         }
-        void BeginAnimation()   // Begin animation on all components
+        public void SetAnimationPropertiesAndBegin(double widthFactor, double heightFactor, double opacityFactor, double duration = 3)      //Setting animation properties for width, height, opacity.
         {
-            foreach (Control control in controls)
+            if (widthFactor < 1 || heightFactor < 1 || opacityFactor < 1 || duration < 1)
             {
-                control.BeginAnimation(Control.WidthProperty, widthAnimation);
-                control.BeginAnimation(Control.HeightProperty, heightAnimation);
-                control.BeginAnimation(Control.OpacityProperty, opacityAnimation);
+                throw new Exception("Значение аргумента не может быть меньше 0");
             }
-        }
-        void BeginAnimationReverse()   // Begin animation on all components
-        {
-            widthAnimation.AutoReverse = true;
-            heightAnimation.AutoReverse = true;
-            opacityAnimation.AutoReverse = true;
-            foreach (Control control in controls)
+            foreach (System.Windows.FrameworkElement control in controls)
             {
-                control.BeginAnimation(Control.WidthProperty, widthAnimation);
-                control.BeginAnimation(Control.HeightProperty, heightAnimation);
-                control.BeginAnimation(Control.OpacityProperty, opacityAnimation);
+                widthAnimation.From = control.ActualWidth;
+                heightAnimation.From = control.ActualHeight;
+                opacityAnimation.From = control.Opacity;
+                widthAnimation.To = control.ActualWidth * widthFactor;
+                heightAnimation.To = control.ActualHeight * heightFactor;
+                opacityAnimation.To = control.Opacity * opacityFactor;
+                control.BeginAnimation(System.Windows.FrameworkElement.WidthProperty, widthAnimation);
+                control.BeginAnimation(System.Windows.FrameworkElement.HeightProperty, heightAnimation);
+                control.BeginAnimation(System.Windows.FrameworkElement.OpacityProperty, opacityAnimation);
             }
-            widthAnimation.AutoReverse = false;
-            heightAnimation.AutoReverse = false;
-            opacityAnimation.AutoReverse = false;
         }
     }
 }

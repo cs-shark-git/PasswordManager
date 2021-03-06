@@ -7,7 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Initialized="Window_Initialized">
     <Grid>
-        <Button Width="100" Height="50" Name="button" Margin="640,28,52,341"/>
         <Grid HorizontalAlignment="Left" Height="246" Margin="151,75,0,0" VerticalAlignment="Top" Width="495" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <TransformGroup>

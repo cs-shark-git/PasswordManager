@@ -4,29 +4,29 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordManager.Forms"
-        mc:Ignorable="d"
-        Title="WelcomeForm" Height="450" Width="800">
+        mc:Ignorable="d"       
+        Title="WelcomeForm" Height="450" Width="800" Loaded="Window_Loaded" Initialized="Window_Initialized" Closed="Window_Closed" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label Content="Добро пожаловать в PasswordManager!" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="506" Height="42" FontFamily="Verdana" FontSize="24"/>
-        <Grid HorizontalAlignment="Left" Height="228" Margin="150,126,0,0" VerticalAlignment="Top" Width="500" Background="#FFEEEEEE">
+        <Label Name="welcomeLabel" Content="Добро пожаловать в PasswordManager!" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="506" Height="42" FontFamily="Verdana" FontSize="24"/>
+        <Grid  Name="welcomeGrid" HorizontalAlignment="Left" Height="228" Margin="150,126,0,0" VerticalAlignment="Top" Width="500" Background="#FFEEEEEE">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Page Margin="0,0,0,25" Background="#FF3F3F46"/>
+            <Grid Margin="0,0,0,25" Background="#FF3F3F46"/>
             <Label Grid.Row="0" Margin="5,10,0,25" Content="Введите Ваше имя и мастер-пароль, не менее 8 символов." FontFamily="Verdana" Background="#FF3F3F46" Foreground="White" />
             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="20">
                 <Label Content="Ваше имя:" FontFamily="Verdana" VerticalContentAlignment="Center"/>
                 <TextBox Width="384"/>
             </StackPanel>
-            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="20">
+            <StackPanel x:Name="closing" Grid.Row="2" Orientation="Horizontal" Margin="20">
                 <Label Content="М-Пароль:" FontFamily="Verdana" VerticalContentAlignment="Center" Width="76"/>
                 <TextBox Width="384"/>
             </StackPanel>
         </Grid>
-        <Label Content="Давайте начнем работу с Вас и, конечно, пароля." HorizontalAlignment="Left" Margin="150,70,0,0" VerticalAlignment="Top" Width="506" Height="42" FontFamily="Verdana" Background="Transparent" FontSize="16"/>
-        <Button Content="Далее" HorizontalAlignment="Left" Margin="506,354,0,0" VerticalAlignment="Top" Width="144" Height="36" Background="#FF3F3F46" RenderTransformOrigin="0,0" BorderBrush="#FF3F3F46" Foreground="White" FontFamily="Verdana" />
+        <Label Name="infoLabel" Content="Давайте начнем работу с Вас и, конечно, пароля." HorizontalAlignment="Left" Margin="150,70,0,0" VerticalAlignment="Top" Width="506" Height="42" FontFamily="Verdana" Background="Transparent" FontSize="16"/>
+        <Button Name="nextButton" Content="Далее" HorizontalAlignment="Left" Margin="506,354,0,0" VerticalAlignment="Top" Width="144" Height="36" Background="#FF3F3F46" RenderTransformOrigin="0,0" BorderBrush="#FF3F3F46" Foreground="White" FontFamily="Verdana" />
 
     </Grid>
 </Window>
