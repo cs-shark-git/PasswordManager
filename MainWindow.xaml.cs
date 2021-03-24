@@ -48,8 +48,6 @@ namespace PasswordManager
                  * TODO:
                  * Launch MainWindow with normal created normal GUI and realize save info from WelcomeForm.
                  * Add new comments
-                 * Stop writing shit -_-
-                 * 
                  */
             }
         }
