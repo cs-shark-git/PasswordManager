@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordManager.Forms"
-        mc:Ignorable="d"       
+        mc:Ignorable="d"
         Title="WelcomeForm" Height="450" Width="800" Loaded="Window_Loaded" Initialized="Window_Initialized" Closed="Window_Closed" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label Name="welcomeLabel" Content="Добро пожаловать в PasswordManager!" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="506" Height="42" FontFamily="Verdana" FontSize="24"/>
@@ -18,15 +18,15 @@
             <Label Grid.Row="0" Margin="5,10,0,25" Content="Введите Ваше имя и мастер-пароль, не менее 8 символов." FontFamily="Verdana" Background="#FF3F3F46" Foreground="White" />
             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="20">
                 <Label Content="Ваше имя:" FontFamily="Verdana" VerticalContentAlignment="Center"/>
-                <TextBox Width="384"/>
+                <TextBox x:Name="userNameTextBox" Width="384" Margin="0" BorderThickness="1" RenderTransformOrigin="0.5,0.5" TextDecorations="{x:Null}" FontFamily="Segoe UI" IsUndoEnabled="False" VerticalContentAlignment="Center"/>
             </StackPanel>
             <StackPanel x:Name="closing" Grid.Row="2" Orientation="Horizontal" Margin="20">
                 <Label Content="М-Пароль:" FontFamily="Verdana" VerticalContentAlignment="Center" Width="76"/>
-                <TextBox Width="384"/>
+                <TextBox x:Name="passwordTextBox" Width="384" VerticalContentAlignment="Center" SpellCheck.IsEnabled="True" TextChanged="passwordTextBox_TextChanged"/>
             </StackPanel>
+            <Label x:Name="passwordCorrectCheckLabel" HorizontalAlignment="Left" Margin="97,51,0,0" Grid.Row="2" VerticalAlignment="Top" Height="25" Width="383" RenderTransformOrigin="0.339,4.636"/>
         </Grid>
-        <Label Name="infoLabel" Content="Давайте начнем работу с Вас и, конечно, пароля." HorizontalAlignment="Left" Margin="150,70,0,0" VerticalAlignment="Top" Width="506" Height="42" FontFamily="Verdana" Background="Transparent" FontSize="16"/>
-        <Button Name="nextButton" Content="Далее" HorizontalAlignment="Left" Margin="506,354,0,0" VerticalAlignment="Top" Width="144" Height="36" Background="#FF3F3F46" RenderTransformOrigin="0,0" BorderBrush="#FF3F3F46" Foreground="White" FontFamily="Verdana" />
-
+        <Label Name="infoLabel" Content="Давайте начнем работу с Вас, и конечно, пароля." HorizontalAlignment="Left" Margin="150,70,0,0" VerticalAlignment="Top" Width="506" Height="42" FontFamily="Verdana" Background="Transparent" FontSize="16"/>
+        <Button Name="nextButton" Content="Далее" HorizontalAlignment="Left" Margin="506,354,0,0" VerticalAlignment="Top" Width="144" Height="36" Background="#FF3F3F46" RenderTransformOrigin="0,0" BorderBrush="#FF3F3F46" Foreground="White" FontFamily="Verdana" Click="nextButton_Click" />
     </Grid>
 </Window>

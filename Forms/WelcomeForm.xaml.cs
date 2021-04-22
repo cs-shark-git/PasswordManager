@@ -13,6 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using PasswordManager.Properties;
+using Newtonsoft.Json;
+using PasswordManager.Data.Classes;
+using System.IO;
+using System.Reflection;
 
 namespace PasswordManager.Forms
 {
@@ -46,13 +50,76 @@ namespace PasswordManager.Forms
             nextButton.Height = 18;
             welcomeLabel.FontSize = 12;
             infoLabel.FontSize = 8;
-
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
             Application.Current.Shutdown();
-            
+        }
+
+        private void nextButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!PasswordFormatCheck(passwordTextBox.Text))
+            {
+                MessageBox.Show("Неправильный формат пароля, попробуйте еще раз", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Information);
+                passwordTextBox.Clear();
+            }
+            MasterPassword ms = new MasterPassword();
+            ms.Hash = passwordTextBox.Text;
+            ms.Length = passwordTextBox.Text.Length;
+            ms.Safe = true;
+            string serialized = JsonConvert.SerializeObject(ms);
+            DataWriter dw = new DataWriter(serialized, "master_password.json");
+            dw.WriteAsync();
+        }
+
+        private bool PasswordFormatCheck(string arg)
+        {
+            if (arg.Length < Password.MAX_PASSWORD_LENGTH && arg.Length >= Password.MIN_PASSWORD_LENGTH)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void passwordTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (passwordTextBox.Text == "")
+            {
+                passwordCorrectCheckLabel.Content = "";
+            }
+            PasswordSafe safe = new PasswordSafe(passwordTextBox.Text);
+            if (PasswordFormatCheck(passwordTextBox.Text))
+            {
+                switch(safe.CheckAll()) {
+                    case PasswordSafe.SafePower.Bad:
+                        passwordCorrectCheckLabel.Foreground = new SolidColorBrush(Colors.Red);
+                        passwordCorrectCheckLabel.Content = "Не безопасный пароль";
+                        break;
+                    case PasswordSafe.SafePower.Normal:
+                        passwordCorrectCheckLabel.Foreground = new SolidColorBrush(Colors.Orange);
+                        passwordCorrectCheckLabel.Content = "Умеренный пароль";
+                        break;
+                    case PasswordSafe.SafePower.Good:
+                        passwordCorrectCheckLabel.Foreground = new SolidColorBrush(Colors.YellowGreen);
+                        passwordCorrectCheckLabel.Content = "Безопасный пароль";
+                        break;
+                    case PasswordSafe.SafePower.Excelent:
+                        passwordCorrectCheckLabel.Foreground = new SolidColorBrush(Colors.Green);
+                        passwordCorrectCheckLabel.Content = "Очень безопасный пароль";
+                        break;
+                }
+
+            }
+            else
+            {
+                passwordCorrectCheckLabel.Foreground = new SolidColorBrush(Colors.Red);
+                passwordCorrectCheckLabel.Content = "Пароль не может быть меньше 4 или больше 100 символов";
+            }
         }
     }
 }
+

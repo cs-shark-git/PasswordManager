@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PasswordManager.Serialize
+namespace PasswordManager.Import
 {
-    interface IPasswordSerialize
+    interface IPasswordImport
     {
-        void Serialize();
+        void Import();
     }
 }

@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PasswordManager.Serialize
+namespace PasswordManager.Import
 {
-    class PasswordSerialize
+    class PasswordImport
     {
-        private IPasswordSerialize serialize;
-        PasswordSerialize(IPasswordSerialize serialize)
+        private IPasswordImport serialize;
+        PasswordImport(IPasswordImport serialize)
         {
             this.serialize = serialize;
         }
 
-        void Serialize()
+        void Import()
         {
             //  serialize.Foo()
         }

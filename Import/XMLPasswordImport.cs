@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PasswordManager.Serialize
+namespace PasswordManager.Import
 {
-    class SQLPasswordSerialize : IPasswordSerialize
+    class XMLPasswordImport : IPasswordImport
     {
-        public void Serialize()
+        public void Import()
         {
             //  Do some
         }

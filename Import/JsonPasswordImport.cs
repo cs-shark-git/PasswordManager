@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PasswordManager.Serialize
+namespace PasswordManager.Import
 {
-    class JsonPasswordSerialize : IPasswordSerialize
+    class JsonPasswordImport : IPasswordImport
     {
-        public void Serialize()
+        public void Import()
         {
             // Do some
         }

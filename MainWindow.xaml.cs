@@ -25,7 +25,8 @@ namespace PasswordManager
     {
         public MainWindow()
         {
-            // Settings.Default.Reset();
+            // НЕ ЗАБЫТЬ УБРАТЬ
+           /* !!! */ Settings.Default.Reset(); /* !!! */
             InitializeComponent();
         }
 
@@ -36,7 +37,7 @@ namespace PasswordManager
                 Hide();
                 WelcomeForm win = new WelcomeForm();
                 win.Show();
-                Settings.Default.isFirstLaunch = false;
+              /* ! */  Settings.Default.isFirstLaunch = false;
                 Settings.Default.Save();
             }
             else
