@@ -18,14 +18,14 @@ using PasswordManager.Data.Classes;
 using System.IO;
 using System.Reflection;
 
-namespace PasswordManager.Forms
+namespace PasswordManager.View
 {
     /// <summary>
     /// Логика взаимодействия для WelcomeForm.xaml
     /// </summary>
-    public partial class WelcomeForm : Window
+    public partial class WelcomeWindow : Window
     {
-        public WelcomeForm()
+        public WelcomeWindow()
         {
             InitializeComponent();
         }

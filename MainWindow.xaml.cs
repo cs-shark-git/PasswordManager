@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.IO;
 using System.Windows.Media.Animation;
-using PasswordManager.Forms;
+using PasswordManager.View;
 using PasswordManager.Properties;
 
 namespace PasswordManager
@@ -35,7 +35,7 @@ namespace PasswordManager
             if (Settings.Default.isFirstLaunch)
             {                               
                 Hide();
-                WelcomeForm win = new WelcomeForm();
+                WelcomeWindow win = new WelcomeWindow();
                 win.Show();
               /* ! */  Settings.Default.isFirstLaunch = false;
                 Settings.Default.Save();

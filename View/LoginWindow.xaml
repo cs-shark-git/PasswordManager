@@ -1,12 +1,26 @@
-﻿<Window x:Class="PasswordManager.Forms.LoginWindow"
+﻿<Window x:Class="PasswordManager.View.LoginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PasswordManager.Forms"
+        xmlns:local="clr-namespace:PasswordManager.View"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="800">
+        Title="LoginWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Label Name="loginLabel" Content="Здравствуйте, User!" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="506" Height="42" FontFamily="Verdana" FontSize="24"/>
+        <Grid  Name="loginGrid" HorizontalAlignment="Left" Height="157" Margin="150,126,0,0" VerticalAlignment="Top" Width="500" Background="#FFEEEEEE">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Margin="0,0,0,25" Background="#FF3F3F46"/>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="20,10,20,30">
+                <Label Content="М-Пароль:" FontFamily="Verdana" VerticalContentAlignment="Center" Width="76"/>
+                <TextBox x:Name="passwordBox" Width="384" VerticalContentAlignment="Center" SpellCheck.IsEnabled="True"/>
+            </StackPanel>
+        </Grid>
+        <Label Content="Введите Ваш мастер-пароль." HorizontalAlignment="Left" Margin="150,70,0,0" VerticalAlignment="Top" Width="506" Height="42" FontFamily="Verdana" Background="Transparent" FontSize="16"/>
+        <Button Name="enterButton" Content="Войти" HorizontalAlignment="Left" Margin="506,283,0,0" VerticalAlignment="Top" Width="144" Height="36" Background="#FF3F3F46" RenderTransformOrigin="0,0" BorderBrush="#FF3F3F46" Foreground="White" FontFamily="Verdana"/>
+        <Label Content="Wrong password, try again" HorizontalAlignment="Left" Margin="245,253,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.006,-1.021" FontFamily="Verdana" FontSize="11"/>
     </Grid>
 </Window>
