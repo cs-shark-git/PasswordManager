@@ -1,0 +1,14 @@
+﻿<Window x:Class="PasswordManager.View.ChangeDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PasswordManager.View"
+        mc:Ignorable="d"
+        Title="ChangeDialog" Height="175" Width="375">
+    <Grid>
+        <Label  Content="Введите новый {content}" HorizontalAlignment="Left" Margin="12,25,0,0" VerticalAlignment="Top" Width="462" Height="31"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="12,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="290"/>
+        <Button Content="Принять" HorizontalAlignment="Left" Margin="13,93,0,0" VerticalAlignment="Top" Width="75" BorderBrush="#FF3F3F46" Background="#FF3F3F46" Foreground="White"/>
+    </Grid>
+</Window>

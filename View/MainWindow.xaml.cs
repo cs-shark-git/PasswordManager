@@ -13,10 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.IO;
 using System.Windows.Media.Animation;
-using PasswordManager.View;
 using PasswordManager.Properties;
 
-namespace PasswordManager
+namespace PasswordManager.View
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
@@ -26,31 +25,31 @@ namespace PasswordManager
         public MainWindow()
         {
             // НЕ ЗАБЫТЬ УБРАТЬ
-           /* !!! */ Settings.Default.Reset(); /* !!! */
+           ///* !!! */ Settings.Default.Reset(); 
             InitializeComponent();
         }
 
         private void Window_Initialized(object sender, EventArgs e)
         {
-            if (Settings.Default.isFirstLaunch)
-            {                               
-                Hide();
-                WelcomeWindow win = new WelcomeWindow();
-                win.Show();
-              /* ! */  Settings.Default.isFirstLaunch = false;
-                Settings.Default.Save();
-            }
-            else
-            {
-                MessageBox.Show("MainWindow");
-                Application.Current.Shutdown();
+            //if (Settings.Default.isFirstLaunch)
+            //{                               
+              //  Hide();
+              //  WelcomeWindow win = new WelcomeWindow();
+              //  win.Show();
+              ///* ! */  Settings.Default.isFirstLaunch = false;
+              //  Settings.Default.Save();
+            //}
+            //else
+            //{
+                //MessageBox.Show("MainWindow");
+                //Application.Current.Shutdown();
                 /*
                  * 
                  * TODO:
                  * Launch MainWindow with normal created normal GUI and realize save info from WelcomeForm.
                  * Add new comments
                  */
-            }
+            //}
         }
     }
 }

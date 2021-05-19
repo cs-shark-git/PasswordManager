@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordManager.View"
         mc:Ignorable="d"
-        Title="WelcomeForm" Height="450" Width="800" Loaded="Window_Loaded" Initialized="Window_Initialized" Closed="Window_Closed" WindowStartupLocation="CenterScreen">
+        Title="WelcomeForm" Height="450" Width="800" Loaded="Window_Loaded" Initialized="Window_Initialized" Closed="Window_Closed" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Label Name="welcomeLabel" Content="Добро пожаловать в PasswordManager!" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="506" Height="42" FontFamily="Verdana" FontSize="24"/>
         <Grid  Name="welcomeGrid" HorizontalAlignment="Left" Height="228" Margin="150,126,0,0" VerticalAlignment="Top" Width="500" Background="#FFEEEEEE">
-            <Grid.RowDefinitions>
+            <Grid.RowDefinitions>   
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
